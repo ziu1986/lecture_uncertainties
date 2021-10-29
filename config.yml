@@ -1,0 +1,11 @@
+experiment:
+  'exp1'
+data:
+  start: 0
+  stop: 20
+  step: 0.1
+
+parameters:
+    inclination: 0.25
+    noise_amplitude: 2
+
