@@ -9,3 +9,5 @@ parameters:
     inclination: 0.25
     noise_amplitude: 2
 
+fit: True
+
