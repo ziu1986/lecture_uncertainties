@@ -26,13 +26,26 @@ def plot(y, x, **karg):
 
     plt.plot(x,y)
     plt.axhline(0, ls=':')
-    
+
     ax = plt.gca()
     ax.set_xlabel("x")
     ax.set_ylabel("f(x)")
 
     plt.show(block=False)
-    plt.savefig(title)
+    
+def plot_fit(fit, **karg):
+    start = karg.pop('start', 0)
+    stop = karg.pop('stop', 20)
+
+    ax = plt.gca()
+    fit_x = (start, stop)
+    fit_y = [ fit(each) for each in fit_x]
+
+    ax.plot(fit_x, fit_y, color='blue')
+
+    ax.text(ax.get_xbound()[0]+2, ax.get_ybound()[1]-2, "$f(x) = m*x + b$", color='blue', size='xx-large')
+    plt.show(block=False)
+
 
 def fitting(y, x, **karg):
     window = karg.pop('window', None)
@@ -58,8 +71,11 @@ def main():
 
     plot(y_eps, x, title=config['experiment'])
 
-    fit = fitting(y, x)
-    
+    if config['fit']:
+        fit = np.poly1d(fitting(y, x))
+        plot_fit(fit)
+        
+    plt.savefig(config['experiment']) 
 
 if __name__ == "__main__":
     main()
