@@ -19,16 +19,27 @@ def init(config_file):
 
 def plot(y, x, **karg):
     title = karg.pop('title', None)
+   
     fig = plt.figure(1, figsize=(12,6))
     if title:
         fig.canvas.set_window_title(title)
+
     plt.plot(x,y)
     plt.axhline(0, ls=':')
+    
     ax = plt.gca()
     ax.set_xlabel("x")
     ax.set_ylabel("f(x)")
+
     plt.show(block=False)
     plt.savefig(title)
+
+def fitting(y, x, **karg):
+    window = karg.pop('window', None)
+    fit = np.polyfit(x, y, 1)
+    print("Fitting: f(x) = m * x + b")
+    print("Result: m = %2.2f; b = %2.2f" % (fit[0], fit[1]))
+    return(fit)
 
 def main():
     # Load config
@@ -47,7 +58,8 @@ def main():
 
     plot(y_eps, x, title=config['experiment'])
 
-
+    fit = fitting(y, x)
+    
 
 if __name__ == "__main__":
     main()
