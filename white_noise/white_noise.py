@@ -49,6 +49,7 @@ def plot_fit(fit, **karg):
 
 def fitting(y, x, **karg):
     window = karg.pop('window', None)
+
     fit = np.polyfit(x, y, 1)
     print("Fitting: f(x) = m * x + b")
     print("Result: m = %2.2f; b = %2.2f" % (fit[0], fit[1]))
