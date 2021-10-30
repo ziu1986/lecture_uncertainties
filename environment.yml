@@ -1,4 +1,4 @@
-name: vl_uncertainties
+name: lecture
 channels:
   - defaults
   - conda-forge
