@@ -1,0 +1,9 @@
+experiment:
+  'exp1'
+parameters:
+  mean: 165
+  sigma: 7.5
+  sample_size: 85
+
+normal: True
+
