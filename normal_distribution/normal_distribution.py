@@ -67,6 +67,7 @@ def main():
         plot_normal(sample, title=exp_title)
     
     plt.show(block=False)
+    plt.savefig(config['experiment'])
 
 if __name__ == "__main__":
     main()
