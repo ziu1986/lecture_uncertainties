@@ -23,7 +23,7 @@ def sample_normal(n_samples, **karg):
 def normal(**karg):
     mean = karg.pop('mean', 0)
     sigma = karg.pop('sigma', 1)
-    x = np.linspace(mean - 3*sigma, mean + 3*sigma, 100)
+    x = np.linspace(mean - 4*sigma, mean + 4*sigma, 100)
     return((x,stats.norm.pdf(x, mean, sigma)))
     
 def plot_normal(sample, **karg):
@@ -37,11 +37,11 @@ def plot_normal(sample, **karg):
     
     ax = plt.gca()
     ax.set_xlabel("Height (cm)")
-
     if not distr:
         ax.set_ylabel("Count")
     else:
         ax.set_ylabel("P(height)")
+    ax.text(185, 0.06, "n = %d" % sample.size, fontsize='xx-large')
 
 def main():
     mean = 165
