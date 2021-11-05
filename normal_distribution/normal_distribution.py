@@ -32,8 +32,8 @@ def plot_normal(sample, **karg):
     if not distr:
         plt.hist(sample, color='blue')
     else:
-        plt.hist(sample, density=True, color='blue')
-        plt.plot(distr[0], distr[1], color='black', ls='--')
+        plt.hist(sample, bins=np.arange(129.5,199.5,1), density=True, color='blue')
+        plt.plot(distr[0], distr[1], color='black', ls='--', linewidth=4)
     
     ax = plt.gca()
     ax.set_xlabel("Height (cm)")
@@ -43,7 +43,7 @@ def plot_normal(sample, **karg):
         ax.set_ylabel("P(height)")
     y_bounds = ax.get_ybound()
 
-    ax.text(185, y_bounds[1]-(y_bounds[1]-y_bounds[0])/10, "n = %d" % sample.size, fontsize='xx-large')
+    ax.text(190, y_bounds[1]-(y_bounds[1]-y_bounds[0])/10, "n = %d" % sample.size, fontsize='xx-large')
 
 def main():
     # Load config
