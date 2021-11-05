@@ -41,15 +41,24 @@ def plot_normal(sample, **karg):
         ax.set_ylabel("Count")
     else:
         ax.set_ylabel("P(height)")
-    ax.text(185, 0.06, "n = %d" % sample.size, fontsize='xx-large')
+    y_bounds = ax.get_ybound()
+
+    ax.text(185, y_bounds[1]-(y_bounds[1]-y_bounds[0])/10, "n = %d" % sample.size, fontsize='xx-large')
 
 def main():
-    mean = 165
-    sigma = 7.5
-    sample_size = 1000
+    # Load config
+    config = init("config.yml")
+    mean = config['parameters']['mean']
+    sigma = config['parameters']['sigma']
+    sample_size = config['parameters']['sample_size']
+    b_plot_normal = config['normal']
+
     sample = sample_normal(sample_size, mean=mean, sigma=sigma)
-    normal_distr = normal(mean=mean, sigma=sigma)
-    plot_normal(sample, distr=normal_distr)
+    if b_plot_normal:
+        normal_distr = normal(mean=mean, sigma=sigma)
+        plot_normal(sample, distr=normal_distr)
+    else:
+        plot_normal(sample)
     
     plt.show(block=False)
 
