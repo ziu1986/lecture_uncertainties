@@ -28,7 +28,12 @@ def normal(**karg):
     
 def plot_normal(sample, **karg):
     distr = karg.pop('distr', None)
+    title = karg.pop('title', None)
+
     plt.close('all')
+    fig = plt.figure(1, figsize=(12,8))
+    fig.canvas.set_window_title("%s" % title)
+
     if not distr:
         plt.hist(sample, color='blue')
     else:
@@ -52,13 +57,14 @@ def main():
     sigma = config['parameters']['sigma']
     sample_size = config['parameters']['sample_size']
     b_plot_normal = config['normal']
+    exp_title = config['experiment']
 
     sample = sample_normal(sample_size, mean=mean, sigma=sigma)
     if b_plot_normal:
         normal_distr = normal(mean=mean, sigma=sigma)
-        plot_normal(sample, distr=normal_distr)
+        plot_normal(sample, distr=normal_distr, title=exp_title)
     else:
-        plot_normal(sample)
+        plot_normal(sample, title=exp_title)
     
     plt.show(block=False)
 
