@@ -30,15 +30,34 @@ def lorenz_attractor(**karg):
     dr = np.array((dX, dY, dZ))
     return(initial_position+dr*time_step)
     
-def plot_lorenz_attractor(pos, **karg):
+def plot_lorenz_attractor(X, Y, Z, **karg):
+    from mpl_toolkits.mplot3d import axes3d
+    
     title = karg.pop('title', None)
 
     plt.close('all')
     fig = plt.figure(1, figsize=(12,8))
     fig.canvas.set_window_title("%s" % title)
 
-    ax = plt.gca()
-    
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Z")
+
+    # Plot
+    ax.plot(X, Y, Z, lw=2.5)
+
+def init_output(pos0):
+    X = [pos0[0],]
+    Y = [pos0[1],]
+    Z = [pos0[2],]
+    return(X, Y, Z)
+
+def integrate_output(pos, X, Y, Z):
+    X = X.append(pos[0])
+    Y = Y.append(pos[1])
+    Z = Z.append(pos[2])
+    return(X, Y, Z)
 
 def main():
     # Load config
@@ -53,12 +72,15 @@ def main():
 
     pos = initial_position
     print(0, pos)
+    X, Y, Z = init_output(pos)
 
     for time in np.arange(1,time_stop):
         pos = lorenz_attractor(init=pos,time_step=time_step,sigma=sigma,rho=rho,beta=beta)
         print(time, pos)
+        integrate_output(pos, X, Y, Z)
     
-    #plt.show(block=False)
+    plot_lorenz_attractor(X, Y, Z)
+    plt.show(block=False)
     #plt.savefig(config['experiment'])
 
 if __name__ == "__main__":
