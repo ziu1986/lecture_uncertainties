@@ -1,0 +1,13 @@
+experiment:
+  'exp00'
+parameters:
+  rho: 28
+  sigma: 11
+  beta: 1.66667
+
+initial_condition:
+  position: [1,1,1]
+
+time_control:
+  step: 0.01
+  stop: 10000
