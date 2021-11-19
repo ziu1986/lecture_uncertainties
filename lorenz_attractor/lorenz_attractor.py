@@ -33,7 +33,7 @@ def lorenz_attractor(**karg):
 def plot_lorenz_attractor(X, Y, Z, **karg):
     from mpl_toolkits.mplot3d import axes3d
     
-    title = karg.pop('title', None)
+    title = karg.pop('title', 'lorenz_attractor')
 
     plt.close('all')
     fig = plt.figure(1, figsize=(12,8))
@@ -71,17 +71,15 @@ def main():
     time_stop = config['time_control']['stop']
 
     pos = initial_position
-    print(0, pos)
     X, Y, Z = init_output(pos)
 
     for time in np.arange(1,time_stop):
         pos = lorenz_attractor(init=pos,time_step=time_step,sigma=sigma,rho=rho,beta=beta)
-        print(time, pos)
         integrate_output(pos, X, Y, Z)
     
     plot_lorenz_attractor(X, Y, Z)
     plt.show(block=False)
-    #plt.savefig(config['experiment'])
+    plt.savefig(config['experiment'])
 
 if __name__ == "__main__":
     main()
