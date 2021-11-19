@@ -35,7 +35,6 @@ def plot_lorenz_attractor(X, Y, Z, **karg):
     
     title = karg.pop('title', 'lorenz_attractor')
 
-    plt.close('all')
     fig = plt.figure(1, figsize=(12,8))
     fig.canvas.set_window_title("%s" % title)
 
@@ -60,6 +59,8 @@ def integrate_output(pos, X, Y, Z):
     return(X, Y, Z)
 
 def main():
+    # Close previous figures
+    plt.close('all')
     # Load config
     config = init("config.yml")
     sigma = config['parameters']['sigma']
