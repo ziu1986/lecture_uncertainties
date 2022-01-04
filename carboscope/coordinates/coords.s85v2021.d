@@ -1,0 +1,22 @@
+#                         Code       Lat       Lon    Height
+         hbBRWk+fbBRWk+fbBRWco     71.32   -156.61     12.50
+                   fbSHIPICABk     82.85   -139.35      0.00
+fsLJOENWA2k+fsLJONWA2k+fsLJONW     40.00   -126.00     15.00
+                 hbMLOk+fbMLOk     19.53   -155.58   3397.00
+          fbSPOk+1994.0+fbSPOs    -89.98    -24.80   2810.00
+                       frSHMco     52.72    174.11     27.00
+                       frMIDco     28.21   -177.37     10.00
+                frCHRk+frCHRco      1.70   -157.16      3.50
+        hrSMOco+frSMOco+frSMOk    -14.24   -170.57     51.00
+                frCBAs+frCBAco     55.21   -162.71     41.00
+                       fmNWRco     40.04   -105.60   3526.00
+                       fsKEYco     25.67    -80.18      4.50
+                       nrIZOxw     28.31    -16.50   2392.00
+                       frASCco     -7.97    -14.40     88.50
+                       nmCMNxi     44.18     10.69   2169.00
+                frPSAs+frPSAco    -64.85    -64.03     12.50
+                        hrSYOx    -69.00     39.58     29.00
+                       drAMSli    -37.80     77.54     55.00
+                        fsBHDk    -41.40    174.90     85.00
+                        frKERk    -29.03   -177.15      2.00
+         frCGOco+2000.0+frCGOa    -40.68    144.68    130.50

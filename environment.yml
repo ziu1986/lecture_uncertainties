@@ -9,4 +9,6 @@ dependencies:
   - pandas
   - matplotlib
   - pyyaml
+  - cartopy
   - ipython
+
